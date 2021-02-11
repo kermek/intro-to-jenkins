@@ -14,6 +14,9 @@ pipeline {
         }
         success {
             echo 'I succeeded!'
+            mail to: 'ring.test.usr@gmail.com',
+                 subject: "Passed Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Build ${env.BUILD_URL}"
         }
         unstable {
             echo 'I am unstable :/'
