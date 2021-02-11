@@ -6,6 +6,11 @@ pipeline {
                 sh 'ls'
             }
         }
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
     }
     post {
         always {
